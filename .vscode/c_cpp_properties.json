@@ -1,0 +1,41 @@
+// {
+//     "configurations": [
+//         {
+//             "name": "Mac",
+//             "includePath": [
+//                 "${workspaceFolder}/**",
+//                 "/Library/Developer/CommandLineTools/usr/include/c++/v1",
+//                 "/Library/Developer/CommandLineTools/usr/lib/clang/17.0.0/include",
+//                 "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include"
+//             ],
+//             "compilerPath": "/usr/bin/clang++",
+//             "cStandard": "c11",
+//             "cppStandard": "c++17",
+//             "intelliSenseMode": "macos-clang-arm64"
+//         }
+//     ],
+//     "version": 4
+// }
+
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build C++ File",
+            "type": "shell",
+            "command": "/usr/bin/clang++",
+            "args": [
+                "-std=c++17",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "detail": "Compile current C++ file using clang++"
+        }
+    ]
+}
