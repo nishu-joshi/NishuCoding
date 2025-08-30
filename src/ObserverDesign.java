@@ -75,7 +75,7 @@ class User implements IUser {
 }
 
 // Driver class
-public class Main {
+public class ObserverDesign {
     public static void main(String[] args) {
         Channel channel = new Channel("CarryMinati");
         User user1 = new User("Nishant");
