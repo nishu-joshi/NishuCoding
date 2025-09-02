@@ -5,13 +5,28 @@
 #define pii pair<int,int>
 using namespace std;
 
-
+void solve(int r, int c)
+{
+    if(r==9)
+    {
+        cout<<"thak gya hu bro"<<'\n';
+        return ;
+    }
+    
+    r+=(c/9);
+    c%=9;
+    cout<<"r = "<<r<<", c = "<<c<<endl;
+    solve(r,c+1);
+}
 
 int main()
 {
-    vector<int> A={1,2,4,4,6,8,9,10,11,33};
-    auto ans = upper_bound(A.begin(),A.end(),44)-A.begin();
-    cout<<"Final ans = "<<ans;
+    //vector<vector<char>>A={{}};
+    // Solution s;
+    // s.solveSudoku(A);
+    //cout<<"Final ans = "<<ans;
+    solve(0,0);
+
     
     return 0;
 }
