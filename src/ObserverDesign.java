@@ -8,8 +8,11 @@ interface IUser {
 // Subject interface
 interface IChannel {
     void subscribe(IUser user);
+
     void unsubscribe(IUser user);
+
     void notifyObservers(String newVideo);
+
     void uploadVideo(String title);
 }
 

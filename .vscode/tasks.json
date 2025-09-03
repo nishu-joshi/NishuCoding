@@ -14,13 +14,58 @@
                 "isDefault": true
             },
             "problemMatcher": ["$gcc"],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "runOptions": {
+                "runOn": "fileSave"
+            },
             "presentation": {
                 "echo": true,
                 "reveal": "always",
                 "focus": true,
                 "panel": "shared",
                 "clear": true
+            },
+            "filter": {
+                "pattern": "**/*.cpp"
             }
+        },
+        {
+            "label": "Build Java",
+            "type": "shell",
+            "command": "/bin/zsh",
+            "args": [
+                "-c",
+                "mkdir -p bin && javac -d bin $(find src -name \"*.java\")"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Run Java",
+            "type": "shell",
+            "command": "java",
+            "args": [
+                "-cp", "bin",
+                "NotificationSystemMain"
+            ],
+            "dependsOn": "Build Java",
+            "group": "none"
+        },
+        {
+            "label": "Rebuild Java",
+            "type": "shell",
+            "command": "/bin/zsh",
+            "args": [
+                "-c",
+                "rm -rf bin && mkdir bin && find src -name \"*.class\" -type f -delete && javac -d bin $(find src -name \"*.java\")"
+            ],
+            "problemMatcher": []
         }
+
     ]
 }
